@@ -1,0 +1,12 @@
+<div class="row" >
+  <div class="col-xs-12">
+    <button class="btn btn-success"> Uhhhhh, it`s tasty </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-recipes-items
+      *ngFor="let recipeElement of recipes" [recipe]="recipeElement"
+    ></app-recipes-items>
+  </div>
+</div>
