@@ -1,0 +1,9 @@
+header {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+p {
+  font-style: italic;
+  font-weight: inherit;
+}

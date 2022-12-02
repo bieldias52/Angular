@@ -1,0 +1,7 @@
+<app-header (localSelected) = onNavigating($event)></app-header>
+<div class="container">
+  <div class="row">
+    <app-recipes *ngIf="selected === 'recipe'"></app-recipes>
+    <app-shopping-list *ngIf="selected === 'shoppingList'"></app-shopping-list>
+  </div>
+</div>

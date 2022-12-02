@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signedForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="userData">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" formControlName="username" placeholder="Enter a username"
+              class="form-control">
+            <span *ngIf="!signedForm.get('userData.username').valid && signedForm.get('userData.username').touched"
+              class="help-block">Please enter a valid username</span>
+          </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" id="email" formControlName="email" class="form-control">
+            <span
+              *ngIf="!signedForm.get('userData.email').valid && !signedForm.get('userData.email').pending && signedForm.get('userData.email').touched"
+              class="help-block">Please enter a valid email</span>
+          </div>
+        </div>
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input type="radio" formControlName="gender" [value]="gender">{{ gender }}
+          </label>
+        </div>
+        <div formArrayName="hobbies">
+          <h4>What do you like to do?</h4>
+          <div>
+            <button style="margin-right: 10px;" class="btn btn-secondary" type="button" (click)="addHobby()">
+              Add some hobby</button>
+            <button class="btn btn-danger" (click)="removeHobby()">Remove last hobbie</button>
+          </div>
+          <div style="margin-top: 10px">
+            <div *ngFor="let hobbyControl of getControls(); let i = index" style="margin-top: 4px;">
+              <input type="text" class="form-control" [formControlName]="i">
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 10px;">
+          <button [disabled]="!signedForm.valid" class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

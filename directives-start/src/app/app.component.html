@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <p> {{onlyOdd}}</p>
+      <br><br>
+<!--      <ul class="list-group">-->
+<!--        <li-->
+<!--          class="list-group-item"-->
+<!--          *ngFor="let number of numbers">-->
+<!--          {{ number }}-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <ng-template [ngIf]="onlyOdd">-->
+<!--        <p>Only odd</p>-->
+<!--      </ng-template>-->
+
+<!--      <div *ngIf="onlyOdd">-->
+<!--        <ul class="list-group">-->
+<!--          <li-->
+<!--            class="list-group-item"-->
+<!--            *ngFor="let odd of oddNumb">-->
+<!--            {{ odd }}-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--      <div *ngIf="!onlyOdd">-->
+<!--        <ul class="list-group">-->
+<!--          <li-->
+<!--            class="list-group-item"-->
+<!--            *ngFor="let even of evenNumb">-->
+<!--            {{ even }}-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+
+      <div *appUnless="onlyOdd">-->
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let odd of oddNumb">
+            {{ odd }}
+          </li>
+        </ul>
+      </div>
+      <p app-basicDirective> Testing the styling with basic directive </p>
+      <p appBetterDirective [defaultBackground]="'yellow'" [defaultHigh]="'black'" > Testing the styling with better directive </p>
+
+    </div>
+  </div>
+</div>
